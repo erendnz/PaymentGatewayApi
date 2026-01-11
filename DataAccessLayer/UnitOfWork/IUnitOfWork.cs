@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Repository;
-using Entities;
+using DataAccessLayer.Repository.TransactionEventRepository;
+using DataAccessLayer.Repository.TransactionRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace DataAccessLayer.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        IRepository<Transaction> Transactions { get; }
-        IRepository<TransactionEvent> TransactionEvents { get; }
+        ITransactionRepository Transactions { get; }
+        ITransactionEventRepository TransactionEvents { get; }
         Task<int> CommitAsync();
     }
 }

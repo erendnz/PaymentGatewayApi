@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Business.DTOs.PaymentDTOs;
 using Core.Constants.Messages;
+using Core.Entities;
 using Core.Enums;
 using DataAccessLayer.UnitOfWork;
-using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Entities;
 
 namespace Entities
 {
-    public class TransactionEvent
+    public class TransactionEvent : IEntity
     {
         [Key]
         public int TransactionEventId { get; set; }

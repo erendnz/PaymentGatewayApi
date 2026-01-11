@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  payment-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: payment-sql-server
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=StrongPassword123!
+    ports:
+      - "1433:1433"
+
+  payment-api:
+    image: payment-gateway-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=D\SQLEXPRESS;Database=PAYMENTDB;User Id=sa;Password=StrongPassword123!;TrustServerCertificate=True
+    depends_on:
+      - V

@@ -1,5 +1,7 @@
-﻿using DataAccessLayer.Repository;
-using Entities;
+﻿using Core.Repository;
+using DataAccessLayer.Repository;
+using DataAccessLayer.Repository.TransactionEventRepository;
+using DataAccessLayer.Repository.TransactionRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +12,27 @@ namespace DataAccessLayer.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly PaymentDbContext _context;
-        private Repository<Transaction> _transactionRepository;
-        private Repository<TransactionEvent> _eventRepository;
+        private readonly PaymentDbContext _context; 
 
-        public UnitOfWork(PaymentDbContext context)
-        {
-            _context = context;
-        }
+        private TransactionRepository _transactionRepository; 
+        private TransactionEventRepository _eventRepository; 
+
+        public UnitOfWork(PaymentDbContext context) 
+        { 
+            _context = context; 
+        } 
 
         // Lazy loading of repositories
-        public IRepository<Transaction> Transactions =>
-            _transactionRepository ??= new Repository<Transaction>(_context);
-
-        public IRepository<TransactionEvent> TransactionEvents =>
-            _eventRepository ??= new Repository<TransactionEvent>(_context);
-
-        public async Task<int> CommitAsync()
-        {
+        public ITransactionRepository Transactions => _transactionRepository ??= new TransactionRepository(_context); 
+        public ITransactionEventRepository TransactionEvents => _eventRepository ??= new TransactionEventRepository(_context); 
+        public async Task<int> CommitAsync() 
+        { 
             // Saves all changes in a single transaction
-            return await _context.SaveChangesAsync();
-        }
-
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
+            return await _context.SaveChangesAsync(); 
+        } 
+        public void Dispose() 
+        { 
+            _context.Dispose(); 
+        } 
     }
 }

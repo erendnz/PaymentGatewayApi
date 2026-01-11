@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{4C837276-DFFE-4EB2-9447-31C5710FF091}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{821E347A-D2FB-4233-B217-27B57F871366}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{C4F8A7BB-1AB1-4600-B58E-DA32218092D8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{D9697B75-62CC-4172-B97A-C480A0400706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8A3C734E-4CD6-45A6-B65C-2DA02BE66F91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{8A3C734E-4CD6-45A6-B65C-2DA02BE66F91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4C837276-DFFE-4EB2-9447-31C5710FF091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C837276-DFFE-4EB2-9447-31C5710FF091}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C837276-DFFE-4EB2-9447-31C5710FF091}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C837276-DFFE-4EB2-9447-31C5710FF091}.Release|Any CPU.Build.0 = Release|Any CPU
 		{821E347A-D2FB-4233-B217-27B57F871366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{821E347A-D2FB-4233-B217-27B57F871366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{821E347A-D2FB-4233-B217-27B57F871366}.Release|Any CPU.ActiveCfg = Release|Any CPU

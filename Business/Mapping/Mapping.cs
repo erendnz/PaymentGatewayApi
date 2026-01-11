@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
 using Business.DTOs.PaymentDTOs;
-using Entities;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Transactions;
-using Transaction = Entities.Transaction;
 
 namespace Business.Mapping
 {

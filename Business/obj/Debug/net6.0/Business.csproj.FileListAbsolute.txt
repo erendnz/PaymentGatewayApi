@@ -7,9 +7,7 @@ C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\Business.deps
 C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\Business.dll
 C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\Business.pdb
 C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\DataAccessLayer.dll
-C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\Entities.dll
 C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\DataAccessLayer.pdb
-C:\Users\HP\source\repos\Payment Project\Business\bin\Debug\net6.0\Entities.pdb
 C:\Users\HP\source\repos\Payment Project\Business\obj\Debug\net6.0\Business.csproj.CopyComplete
 C:\Users\HP\source\repos\Payment Project\Business\obj\Debug\net6.0\Business.dll
 C:\Users\HP\source\repos\Payment Project\Business\obj\Debug\net6.0\refint\Business.dll

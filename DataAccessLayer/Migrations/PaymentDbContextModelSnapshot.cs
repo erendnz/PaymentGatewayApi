@@ -22,7 +22,7 @@ namespace DataAccessLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Entities.Transaction", b =>
+            modelBuilder.Entity("Core.Entities.Transaction", b =>
                 {
                     b.Property<Guid>("TransactionId")
                         .ValueGeneratedOnAdd()
@@ -72,7 +72,7 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Transactions", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.TransactionEvent", b =>
+            modelBuilder.Entity("Core.Entities.TransactionEvent", b =>
                 {
                     b.Property<int>("TransactionEventId")
                         .ValueGeneratedOnAdd()
@@ -106,9 +106,9 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("TransactionEvents", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.TransactionEvent", b =>
+            modelBuilder.Entity("Core.Entities.TransactionEvent", b =>
                 {
-                    b.HasOne("Entities.Transaction", "Transaction")
+                    b.HasOne("Core.Entities.Transaction", "Transaction")
                         .WithMany("TransactionEvents")
                         .HasForeignKey("TransactionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -117,7 +117,7 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Transaction");
                 });
 
-            modelBuilder.Entity("Entities.Transaction", b =>
+            modelBuilder.Entity("Core.Entities.Transaction", b =>
                 {
                     b.Navigation("TransactionEvents");
                 });

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Core.Enums;
+using Core.Entities;
 
 namespace Entities
 {
-    public class Transaction
+    public class Transaction : IEntity
     {
         [Key]
         public Guid TransactionId { get; set; } 
