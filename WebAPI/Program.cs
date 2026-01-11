@@ -39,4 +39,23 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
+// Migration Otomation
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<PaymentDbContext>();
+
+        // If there is no db then create and apply migrations
+        context.Database.Migrate();
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Migration sýrasýnda hata oluþtu: {ex.Message}");
+    }
+}
+
 app.Run();
