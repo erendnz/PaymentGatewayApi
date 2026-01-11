@@ -23,7 +23,7 @@ This project is a high-performance Payment Gateway API built with .NET 6 using C
 ## 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd "Payment Project"
+cd PaymentGatewayApi
 ```
 # .env File Content
 
