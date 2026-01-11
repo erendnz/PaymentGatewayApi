@@ -27,11 +27,11 @@ cd PaymentGatewayApi
 ```
 # .env File Content
 
-Create .env file in root directory
+Create .env file in root directory like in this example
 
 ```bash
-DB_PASSWORD=YourPassword
-DB_NAME=PaymentDb
+DB_PASSWORD=Password
+DB_NAME=PAYMENTDB
 DB_USER=sa
 ```
 
