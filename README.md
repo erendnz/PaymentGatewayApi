@@ -3,7 +3,6 @@
 This project is a high-performance Payment Gateway API built with .NET 6 using Clean Architecture principles. It supports transaction management, automated database migrations, and is fully containerized with Docker.
 
 ### Project Details
-- **Architecture**: Clean Architecture (Core, Business, DataAccess, WebAPI)
 - **Patterns**: Repository Pattern, Unit of Work, Dependency Injection
 - **Database**: MS SQL Server (EF Core Code First)
 
@@ -88,11 +87,8 @@ API Documentation: Swagger
 
 6. Project Structure
 Core: Contains Domain Entities, Enums, and Repository Interfaces. 
-
-Business: Contains Business Logic, Services, DTOs, and FluentValidation rules.
-
 DataAccessLayer: Contains DB Context, Migrations, and Repository/UnitOfWork implementations.
-
+Business: Contains Business Logic, Services, DTOs, and FluentValidation rules.
 WebAPI: API Controllers, Middleware, and Program.cs configuration.
 
 ### Manual Database Script
