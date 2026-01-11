@@ -85,7 +85,7 @@ Containerization: Docker & Docker Compose
 
 API Documentation: Swagger 
 
-6. Project Structure
+## 6. Project Structure
 Core: Contains Domain Entities, Enums, and Repository Interfaces. 
 DataAccessLayer: Contains DB Context, Migrations, and Repository/UnitOfWork implementations.
 Business: Contains Business Logic, Services, DTOs, and FluentValidation rules.
