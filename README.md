@@ -25,7 +25,10 @@ This project is a high-performance Payment Gateway API built with .NET 6 using C
 git clone <repository-url>
 cd "Payment Project"
 ```
-# .env file content
+# .env File Content
+
+Create .env file in root directory
+
 ```bash
 DB_PASSWORD=YourPassword
 DB_NAME=PaymentDb
