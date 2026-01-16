@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Business.DTOs.PaymentDTOs;
+using Business.Services.BankService;
 using Core.Constants.Messages;
 using Core.Entities;
 using Core.Enums;
@@ -16,17 +17,32 @@ namespace Business.PaymentService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly BankAService _bankAService;
+        private readonly BankBService _bankBService;
+        private readonly BankCService _bankCService;
 
-        public PaymentService(IUnitOfWork unitOfWork, IMapper mapper)
+        public PaymentService(
+            IUnitOfWork unitOfWork,
+            IMapper mapper,
+            BankAService bankAService,
+            BankBService bankBService,
+            BankCService bankCService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _bankAService = bankAService;
+            _bankBService = bankBService;
+            _bankCService = bankCService;
         }
 
         public async Task<PaymentResponseDto> AuthorizeTransactionAsync(PaymentRequestDto request)
         {
             // Mask the credit card number for security 
             string maskedCardNumber = $"{request.CardNumber.Substring(0, 6)}******{request.CardNumber.Substring(request.CardNumber.Length - 4)}";
+
+            IBankService bankService = request.Amount < 100 ? _bankAService :
+                               request.Amount < 300 ? _bankBService :
+                               _bankCService;
 
             var transaction = new Transaction
             {
@@ -49,7 +65,7 @@ namespace Business.PaymentService
                 TransactionId = transaction.TransactionId,
                 Type = "STATUS_CHANGE",
                 Status = PaymentStatus.Authorized.ToString(),
-                Details = TransactionEventDetails.AuthorizationSuccess,
+                Details = $"{TransactionEventDetails.AuthorizationSuccess} {bankService}",
                 CreatedAt = DateTime.UtcNow
             });
 
