@@ -6,6 +6,8 @@ using DataAccessLayer;
 using DataAccessLayer.UnitOfWork;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Business.Services.BankAuthorizeService;
+using Business.Services.BankService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,9 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IValidator<PaymentRequestDto>, PaymentRequestValidator>();
+builder.Services.AddScoped<BankAService>();
+builder.Services.AddScoped<BankBService>();
+builder.Services.AddScoped<BankCService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -54,7 +59,7 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Migration sýrasýnda hata oluþtu: {ex.Message}");
+        Console.WriteLine($"Migration sÃ½rasÃ½nda hata oluÃ¾tu: {ex.Message}");
     }
 }
 
