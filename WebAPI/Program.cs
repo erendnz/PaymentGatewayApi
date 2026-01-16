@@ -19,6 +19,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IValidator<PaymentRequestDto>, PaymentRequestValidator>();
+builder.Services.AddScoped<IBankService, BankService>();
 
 builder.Services.AddScoped<BankAService>();
 builder.Services.AddScoped<BankBService>();

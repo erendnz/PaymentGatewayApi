@@ -17,22 +17,16 @@ namespace Business.PaymentService
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly BankAService _bankAService;
-        private readonly BankBService _bankBService;
-        private readonly BankCService _bankCService;
+        private readonly IBankService _bankService;
 
         public PaymentService(
             IUnitOfWork unitOfWork,
             IMapper mapper,
-            BankAService bankAService,
-            BankBService bankBService,
-            BankCService bankCService)
+            IBankService bankService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _bankAService = bankAService;
-            _bankBService = bankBService;
-            _bankCService = bankCService;
+            _bankService = bankService;
         }
 
         public async Task<PaymentResponseDto> AuthorizeTransactionAsync(PaymentRequestDto request)
@@ -40,9 +34,7 @@ namespace Business.PaymentService
             // Mask the credit card number for security 
             string maskedCardNumber = $"{request.CardNumber.Substring(0, 6)}******{request.CardNumber.Substring(request.CardNumber.Length - 4)}";
 
-            IBankService bankService = request.Amount < 100 ? _bankAService :
-                               request.Amount < 300 ? _bankBService :
-                               _bankCService;
+            string bankService = await _bankService.AuthorizeAsync(request);
 
             var transaction = new Transaction
             {
